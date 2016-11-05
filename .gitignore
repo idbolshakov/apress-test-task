@@ -1,5 +1,14 @@
+# ignore build dir
+build/
+
 # ignore vim swap files
 *.swp
 
 # ignore node_modules
 *node_modules/
+
+# ignore src/tmp dir
+src/tmp/
+
+# ignore npm-debug.log
+npm-debug.log
