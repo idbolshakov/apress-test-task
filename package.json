@@ -1,0 +1,11 @@
+{
+  "name": "scales",
+  "version": "1.0.0",
+  "description": "реализация тестового задания от apress.ru на должность frontend-разработчика",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "idbolshakov@gmail.com",
+  "license": "ISC"
+}
