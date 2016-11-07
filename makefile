@@ -6,3 +6,7 @@ all:
 	\
 	mkdir build/bundles/;\
 	cp src/tmp/bundle.js build/bundles/bundle.js;\
+	\
+	mkdir build/static;\
+	cp -R static/img/ build/static/img;
+
