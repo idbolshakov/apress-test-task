@@ -53,7 +53,7 @@ class TrunkDragger {
 
         let trunks = this._state.getTrunksList();
 
-        for (let i=0, l=trunks.length; i<l; i++) {
+        for (let i=trunks.length-1; i>=0; i--) {
 
             let trunk = trunks[i];
 
@@ -67,7 +67,7 @@ class TrunkDragger {
 
                 trunks.push(trunks.splice(i,1)[0]);
 
-                this._trunk = trunks[l-1];
+                this._trunk = trunks[trunks.length-1];
                 this._trunk.setAction(this._trunk.ACTION_GRAB);
 
                 return true;
@@ -130,7 +130,7 @@ class TrunkDragger {
     }
 
     /**
-     * tryToLeft
+     * tryToLet
      *
      * позволяет изменить 
      * состояние чемодана,

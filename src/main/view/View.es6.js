@@ -86,8 +86,10 @@ class View {
 
         for (let i=0, l=this._state.getTrunksList().length; i<l; i++) {
 
-            this._imagesMap['trunk-'+i]     = new this._window.Image();
-            this._imagesMap['trunk-'+i].src = this._state.getTrunksList()[i].getImage();
+            let key = this._state.getTrunksList()[i].getImage();
+
+            this._imagesMap[key]     = new this._window.Image();
+            this._imagesMap[key].src = this._state.getTrunksList()[i].getImage();
         };
     }
 
@@ -182,9 +184,11 @@ class View {
             let trunks = this._state.getTrunksList();
             for (let i=0, l=trunks.length; i<l; i++) {
 
+                let key = trunks[i].getImage();
+
                 context.drawImage(
 
-                    this._imagesMap['trunk-'+i],
+                    this._imagesMap[key],
                     trunks[i].getMeasurement().getPosition().x,
                     trunks[i].getMeasurement().getPosition().y,
                     trunks[i].getMeasurement().getSize().width,

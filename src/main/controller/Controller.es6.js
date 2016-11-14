@@ -40,19 +40,19 @@ class Controller {
 
         let canvas = this._view.getCanvas();
 
-        canvas.addEventListener('mousedown', function(e) {
+        canvas.addEventListener('mousedown', (e) => {
 
             this.onMouseDown(e.clientX, e.clientY);
         });
 
-        canvas.addEventListener('mouseup', function() {
+        canvas.addEventListener('mouseup', () => {
 
             this.onMouseUp();
         });
 
-        canvas.addEventListener('mousemove', function(e) {
+        canvas.addEventListener('mousemove', (e) => {
 
-            this.onMouseMove(e.clientX, clientY);
+            this.onMouseMove(e.clientX, e.clientY);
         });
     }
 
@@ -69,6 +69,7 @@ class Controller {
      */
     onMouseDown(x, y) {
 
+        this._model.getTrunkDragger().tryToGrab(x, y);
     }
 
     /**
@@ -81,6 +82,7 @@ class Controller {
      */
     onMouseUp() {
 
+        this._model.getTrunkDragger().tryToLet();
     }
 
     /**
@@ -95,6 +97,7 @@ class Controller {
      */
     onMouseMove(x, y) {
 
+        this._model.getTrunkDragger().tryToDrag(x, y);
     }
 }
 
