@@ -137,6 +137,13 @@ describe('View class', () => {
             assert.equal('function', typeof view.init);
         });
 
+        it('Should contain getCanvas method', () => {
+            
+            assert.equal('function', typeof view.getCanvas);
+        });
+
+
+
         it('Should contain draw method', () => {
             
             assert.equal('function', typeof view.draw);
@@ -259,6 +266,31 @@ describe('View class', () => {
         });
     });
 
+    describe('getCanvas method', () => {
+
+        it('Should return DOM Canvas element', () => {
+ 
+            let window = {
+
+                canvas: {style: null},
+
+                document: {
+                    getElementById: function() {
+
+                        return window.canvas;
+                    }
+                },
+
+                Image: class {}
+            };
+
+            let view = new View(state, window);
+            view.init();
+
+            assert.strictEqual(window.canvas, view.getCanvas());
+
+        });
+    });
 
     describe('draw method', () => {
 

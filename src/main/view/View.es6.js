@@ -92,6 +92,16 @@ class View {
     }
 
     /**
+     * getCanvas
+     * 
+     * @return DOM элемент с canvas'ом
+     */
+    getCanvas() {
+
+        return this._container;
+    }
+
+    /**
      * draw
      *
      * Если все изображения объектов 
