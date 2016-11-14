@@ -23,7 +23,7 @@ describe('View class', () => {
                 measurement: {
                     x: 10,
                     y: 600,
-                    weight: 100,
+                    width: 100,
                     height: 100
                 }
             },
@@ -34,7 +34,7 @@ describe('View class', () => {
                 measurement: {
                     x: 60,
                     y: 620,
-                    weight: 75,
+                    width: 75,
                     height: 75
                 }
             }

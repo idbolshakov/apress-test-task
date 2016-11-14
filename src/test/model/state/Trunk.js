@@ -55,16 +55,6 @@ describe('Trunk class', () => {
 
            assert.equal(true, typeof trunk.ACTION_GRAB != 'undefined');
        });
-
-       it('Should contain ACTION_MOVE constant', () => {
-
-           assert.equal(true, typeof trunk.ACTION_MOVE != 'undefined');
-       });
-
-       it('Should contain ACTION_FALL constant', () => {
-
-           assert.equal(true, typeof trunk.ACTION_FALL != 'undefined');
-       });
    });
    
    // 
@@ -88,6 +78,11 @@ describe('Trunk class', () => {
        it('Should contain getAction method', () => {
 
            assert.equal('function', typeof trunk.getAction);
+       });
+
+       it('Should contain setAction method', () => {
+
+           assert.equal('function', typeof trunk.setAction);
        });
 
    });
@@ -175,4 +170,15 @@ describe('Trunk class', () => {
        });
    });
 
+   describe('setAction method', () => {
+
+       let trunk = new Trunk(new Measurement());
+
+       it('Should set this.action value', () => {
+
+           trunk.setAction(trunk.ACTION_GRAB);
+
+           assert.strictEqual(trunk.ACTION_GRAB, trunk.getAction());
+       });
+   });
 });

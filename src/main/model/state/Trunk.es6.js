@@ -30,12 +30,6 @@ class Trunk extends BaseObject {
         // чемодан захвачен пользователем
         this.ACTION_GRAB = 1;
 
-        // чемодан передвигают
-        this.ACTION_MOVE = 2;
-
-        // чемодан падает
-        this.ACTION_FALL = 3;
-
         this._weight = null;
         this._action = null;
     }
@@ -92,6 +86,16 @@ class Trunk extends BaseObject {
     getAction() {
 
         return this._action;
+    }
+
+    /**
+     * setAction
+     *
+     * @param action {int} - тип действия (описаны в константах)
+     */
+    setAction(action) {
+
+        this._action = action;
     }
 };
 
