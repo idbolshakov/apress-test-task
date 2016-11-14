@@ -9,6 +9,8 @@ describe('Controller class', () => {
         it('Should create a new instance of Controller class', () => {
 
             let controller = new Controller();
+
+            assert.strictEqual(true, controller instanceof Controller);
         });
 
         it('Should take a model {Model} obj in first argument', () => {
