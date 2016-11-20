@@ -37,4 +37,42 @@ describe('Scalepan class', () => {
           assert.strictEqual(measurement, scalepan.getMeasurement());
       });
    });
+
+   describe('public methods', () => {
+
+       let scalepan = new Scalepan();
+
+       it('Should contain setVerticalMotionValue', () => {
+
+           assert.equal('function', typeof scalepan.setVerticalMotionValue);
+       });
+
+       it('Should contain getVerticalMotionValue', () => {
+
+           assert.equal('function', typeof scalepan.getVerticalMotionValue);
+       });
+   });
+
+   describe('setVerticalMotionValue method', () => {
+
+       it('Should set vertical motion value', () => {
+
+           let scalepan = new Scalepan();
+           scalepan.setVerticalMotionValue(555);
+
+           assert.equal(555, scalepan.getVerticalMotionValue());
+       });
+   });
+
+   describe('getVerticalMotionValue method', () => {
+
+       it('Should return vertical motion value', () => {
+
+           let scalepan = new Scalepan();
+           scalepan.setVerticalMotionValue(555);
+
+           assert.equal(555, scalepan.getVerticalMotionValue());
+       });
+
+   });
 });

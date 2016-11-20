@@ -8,6 +8,7 @@ import Measurement from '../../../main/model/state/base_object/Measurement.es6.j
 import Scalepan from '../../../main/model/state/scales/Scalepan.es6.js';
 import Screen from '../../../main/model/state/scales/Screen.es6.js';
 import Base from '../../../main/model/state/scales/Base.es6.js';
+import Arrow from '../../../main/model/state/scales/Arrow.es6.js';
 import Scales from '../../../main/model/state/scales/Scales.es6.js';
 
 //
@@ -39,6 +40,7 @@ describe('StateInitializer class', () => {
 
                 trunks: [
                     {
+                        id: 1,
                         image: 'img/trunks/trunk1.svg',
                         weight: 50,
                         action: 0,
@@ -53,6 +55,7 @@ describe('StateInitializer class', () => {
                     },
 
                     {
+                        id: 1,
                         image: 'img/trunks/trunk2.svg',
                         weight: 100,
                         action: 1,
@@ -97,6 +100,7 @@ describe('StateInitializer class', () => {
 
                     leftPan: {
 
+                        verticalMotion: 30,
                         image: 'img/scales/pan',
 
                         measurement: {
@@ -104,12 +108,14 @@ describe('StateInitializer class', () => {
                             x: 595,
                             y: 487,
                             width: 415,
-                            height: 125
+                            height: 125,
+                            offset: 50
                         }
                     },
 
                     rightPan: {
 
+                        verticalMotion: 30,
                         image: 'img/scales/pan',
 
                         measurement: {
@@ -117,7 +123,19 @@ describe('StateInitializer class', () => {
                             x: 1080,
                             y: 487,
                             width: 415,
-                            height: 125
+                            height: 125,
+                            offset: 50
+                        }
+                    },
+
+                    arrow: {
+
+                        measurement: {
+
+                            x: 1046,
+                            y: 570,
+                            width: 7,
+                            height: 50
                         }
                     }
                 }
@@ -140,7 +158,8 @@ describe('StateInitializer class', () => {
                 width: config.trunks[0].measurement.width,
                 height: config.trunks[0].measurement.height,
 
-                image: config.trunks[0].image,
+                id:     config.trunks[0].id, 
+                image:  config.trunks[0].image,
                 weight: config.trunks[0].weight,
                 action: config.trunks[0].action
             });
@@ -152,7 +171,8 @@ describe('StateInitializer class', () => {
                 width: config.trunks[1].measurement.width,
                 height: config.trunks[1].measurement.height,
 
-                image: config.trunks[1].image,
+                id:     config.trunks[1].id, 
+                image:  config.trunks[1].image,
                 weight: config.trunks[1].weight,
                 action: config.trunks[1].action
             });
@@ -166,8 +186,10 @@ describe('StateInitializer class', () => {
                     y:      config.scales.leftPan.measurement.y,
                     width:  config.scales.leftPan.measurement.width,
                     height: config.scales.leftPan.measurement.height,
+                    offset: config.scales.leftPan.measurement.offset,
                     image:  config.scales.leftPan.image
             });
+            leftPan.setVerticalMotionValue(config.scales.leftPan.verticalMotion);
 
             let rightPan = new Scalepan(new Measurement()); 
             rightPan.init({
@@ -175,8 +197,10 @@ describe('StateInitializer class', () => {
                     y:      config.scales.rightPan.measurement.y,
                     width:  config.scales.rightPan.measurement.width,
                     height: config.scales.rightPan.measurement.height,
+                    offset: config.scales.rightPan.measurement.offset,
                     image:  config.scales.rightPan.image
             });
+            rightPan.setVerticalMotionValue(config.scales.rightPan.verticalMotion);
 
             let screen   = new Screen(new Measurement()); 
             screen.init({
@@ -196,7 +220,15 @@ describe('StateInitializer class', () => {
                     image:  config.scales.base.image
             });
 
-            let scales = new Scales(leftPan, rightPan, screen, base);
+            let arrow    = new Arrow(new Measurement());
+            arrow.init({
+                x:          config.scales.arrow.measurement.x,
+                y:          config.scales.arrow.measurement.y,
+                width:      config.scales.arrow.measurement.width,
+                height:     config.scales.arrow.measurement.height,
+            });
+
+            let scales = new Scales(leftPan, rightPan, screen, base, arrow);
 
             // state
             let state1 = new State(canvas, trunks, scales);

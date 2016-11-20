@@ -29,7 +29,12 @@ class Trunk extends BaseObject {
 
         // чемодан захвачен пользователем
         this.ACTION_GRAB = 1;
+        
+        // чемодан падает
+        this.ACTION_FALL = 2;
 
+
+        this._id     = null;
         this._weight = null;
         this._action = null;
     }
@@ -48,6 +53,8 @@ class Trunk extends BaseObject {
      *  width: {int} - ширина чемодана,
      *  height: {int} - высота чемодана,
      *
+     *  id    : {string} - уникальный идентификатор,
+     *
      *  weight: {int} - вес чемодана,
      *
      *  image: {string} - url изображения чемодана
@@ -59,6 +66,7 @@ class Trunk extends BaseObject {
         
         super.init(data);
 
+        this._id     = data.id;
         this._weight = data.weight;
         this._action = data.action;
     }
@@ -96,6 +104,16 @@ class Trunk extends BaseObject {
     setAction(action) {
 
         this._action = action;
+    }
+
+    /**
+     * getId
+     *
+     * @return id - уникальный идентификатор чемодана
+     */
+    getId() {
+
+        return this._id;
     }
 };
 

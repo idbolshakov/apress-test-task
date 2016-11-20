@@ -6,6 +6,7 @@ import Trunk       from '../state/Trunk.es6.js';
 import Scalepan    from '../state/scales/Scalepan.es6.js';
 import Screen      from '../state/scales/Screen.es6.js';
 import Base        from '../state/scales/Base.es6.js';
+import Arrow       from '../state/scales/Arrow.es6.js';
 import Scales      from '../state/scales/Scales.es6.js';
 import Measurement from '../state/base_object/Measurement.es6.js';
 
@@ -67,7 +68,8 @@ class StateInitializer {
                 width: config[i].measurement.width,
                 height: config[i].measurement.height,
 
-                image: config[i].image,
+                id:     config[i].id,
+                image:  config[i].image,
                 weight: config[i].weight,
                 action: config[i].action
             });
@@ -86,8 +88,10 @@ class StateInitializer {
                 y:      config.leftPan.measurement.y,
                 width:  config.leftPan.measurement.width,
                 height: config.leftPan.measurement.height,
+                offset: config.leftPan.measurement.offset,
                 image:  config.leftPan.image
         });
+        leftPan.setVerticalMotionValue(config.leftPan.verticalMotion);
 
         let rightPan = new Scalepan(new Measurement()); 
         rightPan.init({
@@ -95,8 +99,10 @@ class StateInitializer {
                 y:      config.rightPan.measurement.y,
                 width:  config.rightPan.measurement.width,
                 height: config.rightPan.measurement.height,
+                offset: config.rightPan.measurement.offset,
                 image:  config.rightPan.image
         });
+        rightPan.setVerticalMotionValue(config.rightPan.verticalMotion);
 
         let screen   = new Screen(new Measurement()); 
         screen.init({
@@ -116,7 +122,15 @@ class StateInitializer {
                 image:  config.base.image
         });
 
-        return new Scales(leftPan, rightPan, screen, base);
+        let arrow    = new Arrow(new Measurement());
+        arrow.init({
+            x:          config.arrow.measurement.x,
+            y:          config.arrow.measurement.y,
+            width:      config.arrow.measurement.width,
+            height:     config.arrow.measurement.height,
+        });
+
+        return new Scales(leftPan, rightPan, screen, base, arrow);
     }
 };
 

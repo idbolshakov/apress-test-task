@@ -25,6 +25,7 @@ class Measurement {
 
         this._width  = null;
         this._height = null;
+        this._offset = null;
     }
 
     /**
@@ -38,14 +39,20 @@ class Measurement {
      * @param {int} y      - координаты по оси y
      * @param {int} width  - ширина
      * @param {int} height - высота
+     * @param {int} offset - значение, на которое нужно
+     * увеличить координату верхнего края элемента, чтобы 
+     * получить горизонтальную линию, по которой будем равнять
+     * элементы, которые могут приземляться на этот объект
      */
-    init(x, y, width, height) {
+    init(x, y, width, height, offset) {
 
         this.setX(x);
         this.setY(y);
 
         this.setWidth(width);
         this.setHeight(height);
+
+        this._offset = offset;
     }
 
 
@@ -141,6 +148,17 @@ class Measurement {
     setHeight(height) {
 
         this._height = Number.parseInt(height,10) || 0;
+    }
+
+    /**
+     * getContactLinePos
+     *
+     * @return {int} координата по оси Y описывающая линию физической
+     * границы элемента (на нее будут падать другие элементы)
+     */
+    getContactLinePos() {
+
+        return this.getPosition().y + this._offset;
     }
 };
 

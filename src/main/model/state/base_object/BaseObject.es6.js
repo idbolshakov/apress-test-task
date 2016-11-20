@@ -39,12 +39,13 @@ class BaseObject {
      *  y: {int} - позиция по оси y,
      *  width: {int} - ширина объекта, 
      *  height {int} - высота объекта,
+     *  offset {int} - отступ физической границы от верхней границы
      *  image {string} - url изобржанения объекта
      * }
      */
     init(data) {
 
-        this.getMeasurement().init(data.x, data.y, data.width, data.height);
+        this.getMeasurement().init(data.x, data.y, data.width, data.height, data.offset);
 
         this._image = data.image;
     }

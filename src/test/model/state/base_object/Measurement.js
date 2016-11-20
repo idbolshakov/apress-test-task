@@ -72,7 +72,7 @@ describe('Measurement class', () => {
 
        let measurement = new Measurement();
 
-       measurement.init(1, 2, 3, 4);
+       measurement.init(1, 2, 3, 4, 5);
 
        it('Should set x, coordinate by first argument', () => {
 
@@ -93,6 +93,13 @@ describe('Measurement class', () => {
 
            assert.equal(4, measurement.getSize().height);
        });
+
+       it('Should set offset by fifth argument', () => {
+
+           let offset = measurement.getContactLinePos() - measurement.getPosition().y;
+           assert.equal(5,  offset);
+       });
+
 
        it('Should set x=0 if first argument not contain {int}', () => {
 

@@ -88,6 +88,17 @@ describe('StateDragger class', () => {
                         width: 415,
                         height: 125
                     }
+                },
+
+                arrow: {
+
+                    measurement: {
+
+                        x: 1046,
+                        y: 570,
+                        width: 7,
+                        height: 50
+                    }
                 }
             }
         };
@@ -282,16 +293,16 @@ describe('StateDragger class', () => {
             assert.strictEqual(true, trunkDragger._trunk === null);
         });
 
-        it('Should set ACTION_REST to action property in grabbed trunk', () => {
+        it('Should set ACTION_FALL to action property in grabbed trunk', () => {
 
             let trunkDragger = new TrunkDragger(state);
 
             trunkDragger.tryToGrab(10, 600);
             trunkDragger.tryToLet();
 
-            let trunk = state.getTrunksList()[0];
+            let trunk = state.getTrunksList()[2];
 
-            assert.strictEqual(trunk.ACTION_REST, trunk.getAction());
+            assert.strictEqual(trunk.ACTION_FALL, trunk.getAction());
         });
     });
 });

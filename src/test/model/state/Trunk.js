@@ -55,6 +55,12 @@ describe('Trunk class', () => {
 
            assert.equal(true, typeof trunk.ACTION_GRAB != 'undefined');
        });
+
+       it('Should contain ACTION_FALL constant', () => {
+
+           assert.equal(true, typeof trunk.ACTION_FALL != 'undefined');
+       });
+
    });
    
    // 
@@ -85,6 +91,12 @@ describe('Trunk class', () => {
            assert.equal('function', typeof trunk.setAction);
        });
 
+       it('Should contain getId method', () => {
+
+           assert.equal('function', typeof trunk.getId);
+       });
+
+
    });
 
    //
@@ -102,7 +114,8 @@ describe('Trunk class', () => {
            height: 4,
            weight: 5,
            image: 'image/url.svg',
-           action: trunk.ACTION_REST
+           action: trunk.ACTION_REST,
+           id: 12345
        };
 
        trunk.init(data);
@@ -137,6 +150,12 @@ describe('Trunk class', () => {
 
            assert.equal(data.action, trunk.getAction());
        });
+
+       it('Should set id', () => {
+
+           assert.equal(data.id, trunk.getId());
+       });
+
 
    });
    
@@ -181,4 +200,21 @@ describe('Trunk class', () => {
            assert.strictEqual(trunk.ACTION_GRAB, trunk.getAction());
        });
    });
+
+   describe('getId method', () => {
+
+       let trunk = new Trunk(new Measurement());
+
+       it('Should return trunk id', () => {
+
+           let id = 11111;
+
+           trunk.init({
+               id: id
+           });
+
+           assert.strictEqual(id, trunk.getId());
+       });
+   });
+
 });

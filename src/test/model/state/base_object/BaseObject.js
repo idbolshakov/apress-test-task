@@ -67,6 +67,7 @@ describe('BaseObject class', () => {
            y: 2,
            width: 3,
            height: 4,
+           offset: 5,
 
            image: 'image/url.svg'
        };
@@ -92,6 +93,13 @@ describe('BaseObject class', () => {
 
            assert.equal(data.height, baseObject.getMeasurement().getSize().height);
        });
+
+       it('Should set object offset', () => {
+
+           assert.equal(data.offset, baseObject.getMeasurement()._offset);
+       });
+
+
 
        it('Should set object image url', () => {
 

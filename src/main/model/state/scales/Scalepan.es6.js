@@ -25,6 +25,28 @@ class Scalepan extends BaseObject {
 
         super(measurement);
     }
+
+    /**
+     * setVerticalMotionValue
+     *
+     * @public
+     * @param value {int} - величина, на которую чаша может опускаться вниз
+     */
+    setVerticalMotionValue(value) {
+
+        this._verticalMotionValue = value;
+    }
+
+    /**
+     * getVerticalMotionValue
+     *
+     * @public
+     * @return {int} - величина, на которую чаша может опускаться вниз
+     */
+    getVerticalMotionValue() {
+
+        return this._verticalMotionValue;
+    }
 };
 
 export default Scalepan;

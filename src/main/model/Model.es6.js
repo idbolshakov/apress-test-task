@@ -1,6 +1,13 @@
 'use strict';
 
-import TrunkDragger from './trunk_dragger/TrunkDragger.es6.js';
+import TrunkDragger           from './trunk_dragger/TrunkDragger.es6.js';
+import StateInitializer       from './state_initializer/StateInitializer.es6.js';
+import StateGenerator         from './state_generator/StateGenerator.es6.js';
+import TrunkGravity           from './state_generator/trunk_gravity/TrunkGravity.es6.js';
+import Geodata                from './state_generator/trunk_gravity/geodata/Geodata.es6.js';
+import ScalepanMotion         from './state_generator/scalepan_motion/ScalepanMotion.es6.js';
+import ScalepanTrunksDetector from './state_generator/scalepan_motion/ScalepanTrunksDetector.es6.js';
+import Mover          from './state_generator/scalepan_motion/Mover.es6.js';
 
 /**
  * Model
@@ -18,12 +25,20 @@ class Model {
      * конструктор
      * 
      * @public
-     * @param state {State} - начальное состояние данных приложения
+     * @param state {obj} - конфиг с начальным состоянием системы
      */
-    constructor(state) {
+    constructor(config) {
 
-        this._state = state;
-        this._trunkDragger = new TrunkDragger(state);
+        this._state = StateInitializer.run(config);
+        this._trunkDragger   = new TrunkDragger(this._state);
+        this._stateGenerator = new StateGenerator(
+                this._state, 
+                new TrunkGravity(), 
+                new Geodata(),
+                new ScalepanMotion(ScalepanTrunksDetector, Mover)
+        );
+
+        this._stateGenerator.init();
     }
 
     /**
@@ -34,6 +49,16 @@ class Model {
     getState() {
 
         return this._state;
+    }
+
+    /**
+     * getStateGenerator
+     *
+     * @return {StateGenerator} - объект генерирущий новое состояние модели
+     */
+    getStateGenerator() {
+
+        return this._stateGenerator;
     }
 
     /**

@@ -17,6 +17,7 @@ describe('View class', () => {
         },
         trunks: [
             {
+                id: 1,
                 image: 'img/trunks/trunk1.svg',
                 weight: 50,
                 action: 0,
@@ -28,6 +29,7 @@ describe('View class', () => {
                 }
             },
             {
+                id: 2,
                 image: 'img/trunks/trunk2.svg',
                 weight: 100,
                 action: 1,
@@ -75,8 +77,19 @@ describe('View class', () => {
                     width: 415,
                     height: 125
                 }
+            },
+
+            arrow: {
+
+                measurement: {
+
+                    x: 1046,
+                    y: 570,
+                    width: 7,
+                    height: 50
+                }
             }
-        }
+    }
     };
 
     let state = StateInitializer.run(config);
@@ -308,7 +321,16 @@ describe('View class', () => {
                             getContext: function() { 
                                 return {
                                     clearRect: function(){},
-                                    drawImage: function() {}
+                                    drawImage: function() {},
+
+                                    save:      function() {},
+                                    translate: function() {},
+                                    rotate:    function() {},
+                                    beginPath: function() {},
+                                    moveTo:    function() {},
+                                    lineTo:    function() {},
+                                    stroke:    function() {},
+                                    restore:   function() {},
                                 }
                             },
                         };
@@ -378,7 +400,15 @@ describe('View class', () => {
                     context: {
 
                         clearRect: function() {},
-                        drawImage: function() {}
+                        drawImage: function() {},
+                        save:      function() {},
+                        translate: function() {},
+                        rotate:    function() {},
+                        beginPath: function() {},
+                        moveTo:    function() {},
+                        lineTo:    function() {},
+                        stroke:    function() {},
+                        restore:   function() {},
                     },
 
                     canvas: {
@@ -438,7 +468,15 @@ describe('View class', () => {
                                };
                         },
 
-                        drawImage: function() {}
+                        drawImage: function() {},
+                        save:      function() {},
+                        translate: function() {},
+                        rotate:    function() {},
+                        beginPath: function() {},
+                        moveTo:    function() {},
+                        lineTo:    function() {},
+                        stroke:    function() {},
+                        restore:   function() {},
                     },
 
                     canvas: {
@@ -490,7 +528,16 @@ describe('View class', () => {
 
                                 this.called = true;
                             } 
-                        }
+                        },
+
+                        save:      function() {},
+                        translate: function() {},
+                        rotate:    function() {},
+                        beginPath: function() {},
+                        moveTo:    function() {},
+                        lineTo:    function() {},
+                        stroke:    function() {},
+                        restore:   function() {},
                     },
 
                     canvas: {
@@ -545,7 +592,16 @@ describe('View class', () => {
 
                                 this.called = true;
                             } 
-                        }
+                        },
+
+                        save:      function() {},
+                        translate: function() {},
+                        rotate:    function() {},
+                        beginPath: function() {},
+                        moveTo:    function() {},
+                        lineTo:    function() {},
+                        stroke:    function() {},
+                        restore:   function() {},
                     },
 
                     canvas: {
@@ -601,7 +657,16 @@ describe('View class', () => {
 
                                 this.called = true;
                             } 
-                        }
+                        },
+
+                        save:      function() {},
+                        translate: function() {},
+                        rotate:    function() {},
+                        beginPath: function() {},
+                        moveTo:    function() {},
+                        lineTo:    function() {},
+                        stroke:    function() {},
+                        restore:   function() {},
                     },
 
                     canvas: {
@@ -657,7 +722,16 @@ describe('View class', () => {
 
                                 this.called = true;
                             } 
-                        }
+                        },
+
+                        save:      function() {},
+                        translate: function() {},
+                        rotate:    function() {},
+                        beginPath: function() {},
+                        moveTo:    function() {},
+                        lineTo:    function() {},
+                        stroke:    function() {},
+                        restore:   function() {},
                     },
 
                     canvas: {
@@ -712,8 +786,17 @@ describe('View class', () => {
                                 h === base.getMeasurement().getSize().height) {
 
                                 this.called = true;
-                            } 
-                        }
+                            }
+                        },
+
+                        save:      function() {},
+                        translate: function() {},
+                        rotate:    function() {},
+                        beginPath: function() {},
+                        moveTo:    function() {},
+                        lineTo:    function() {},
+                        stroke:    function() {},
+                        restore:   function() {},
                     },
 
                     canvas: {
@@ -769,7 +852,16 @@ describe('View class', () => {
 
                                 this.calledCount++;
                             } 
-                        }
+                        },
+
+                        save:      function() {},
+                        translate: function() {},
+                        rotate:    function() {},
+                        beginPath: function() {},
+                        moveTo:    function() {},
+                        lineTo:    function() {},
+                        stroke:    function() {},
+                        restore:   function() {},
                     },
 
                     canvas: {

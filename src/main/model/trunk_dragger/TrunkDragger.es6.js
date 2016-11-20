@@ -113,11 +113,15 @@ class TrunkDragger {
             let canvasW = this._state.getCanvas().getSize().width;
             let canvasH = this._state.getCanvas().getSize().height;
 
+            // если не выходим за границы по оси x
+            // то смещаем чемодан по оси х
             if ((x + trunkW/2 < canvasW) && (x - trunkW/2 > 0)) {
 
                 trunk.getMeasurement().setX(x - trunkW/2);
             };
 
+            // если не выходим за границы по оси y
+            // то смещаем чемодан по оси y
             if ((y + trunkH/2 < canvasH) && (y - trunkH/2 > 0)) {
 
                 trunk.getMeasurement().setY(y - trunkH/2);
@@ -145,7 +149,7 @@ class TrunkDragger {
             return false;
         };
 
-        this._trunk.setAction(this._trunk.ACTION_REST);
+        this._trunk.setAction(this._trunk.ACTION_FALL);
         this._trunk = null;
 
         return true;

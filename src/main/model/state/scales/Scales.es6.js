@@ -23,14 +23,16 @@ class Scales {
      * @param leftPan  {Scalepan} - левая чаша весов
      * @param rightPan {ScalePan} - правая чаша весов
      * @param screen   {Screen}   - экран весов
-     * @param base     {base}     - основание весов
+     * @param base     {Base}     - основание весов
+     * @param arrow    {Arrow}    - стрелка весов
      */
-    constructor(leftPan, rightPan, screen, base) {
+    constructor(leftPan, rightPan, screen, base, arrow) {
 
         this._leftPan  = leftPan;
         this._rightPan = rightPan;
         this._screen   = screen;
         this._base     = base;
+        this._arrow    = arrow;
     }
 
     /**
@@ -75,6 +77,17 @@ class Scales {
     getBase() {
 
         return this._base;
+    }
+ 
+    /**
+     * getArrow
+     *
+     * @public
+     * @return  {Arrow} стрелка весов
+     */
+    getArrow() {
+
+        return this._arrow;
     }
 };
 

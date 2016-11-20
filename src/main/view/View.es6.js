@@ -86,7 +86,7 @@ class View {
 
         for (let i=0, l=this._state.getTrunksList().length; i<l; i++) {
 
-            let key = this._state.getTrunksList()[i].getImage();
+            let key = this._state.getTrunksList()[i].getId();
 
             this._imagesMap[key]     = new this._window.Image();
             this._imagesMap[key].src = this._state.getTrunksList()[i].getImage();
@@ -169,6 +169,28 @@ class View {
                 right.getMeasurement().getSize().height
             );
 
+            // print arrow
+            let arrow = this._state.getScales().getArrow();
+
+            context.save();
+            context.lineWidth = arrow.getMeasurement().getSize().width;
+            context.lineCap   = 'round';
+            context.strokeStyle = '#916f6f';
+
+            context.translate(
+                    arrow.getMeasurement().getPosition().x, 
+                    arrow.getMeasurement().getPosition().y
+            );
+            context.rotate(arrow.getAngle() * Math.PI/180);
+
+            context.beginPath();
+            context.moveTo(0,0);
+
+            context.lineTo(0, - arrow.getMeasurement().getSize().height);
+
+            context.stroke();
+            context.restore();
+
             // print scales base
             let base = this._state.getScales().getBase();
             context.drawImage(
@@ -184,7 +206,7 @@ class View {
             let trunks = this._state.getTrunksList();
             for (let i=0, l=trunks.length; i<l; i++) {
 
-                let key = trunks[i].getImage();
+                let key = trunks[i].getId();
 
                 context.drawImage(
 

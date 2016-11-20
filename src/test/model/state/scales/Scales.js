@@ -4,6 +4,7 @@ import Scales   from '../../../../main/model/state/scales/Scales.es6.js';
 import Scalepan from '../../../../main/model/state/scales/Scalepan.es6.js';
 import Screen   from '../../../../main/model/state/scales/Screen.es6.js';
 import Base     from '../../../../main/model/state/scales/Base.es6.js';
+import Arrow    from '../../../../main/model/state/scales/Arrow.es6.js';
 
 
 //
@@ -58,6 +59,16 @@ describe('Scales class', () => {
 
           assert.strictEqual(base, scales.getBase());
       });
+
+      it('Should take arrow {Arrow} object in fifth argument', () => {
+
+          let arrow = new Arrow({});
+
+          let scales = new Scales(null, null,  null, null, arrow);
+
+          assert.strictEqual(arrow, scales.getArrow());
+      });
+
    });
 
    // 
@@ -82,9 +93,9 @@ describe('Scales class', () => {
            assert.equal('function', typeof scales.getScreen);
        });
 
-       it('Should contain getBase method', () => {
+       it('Should contain getArrow method', () => {
 
-           assert.equal('function', typeof scales.getBase);
+           assert.equal('function', typeof scales.getArrow);
        });
    });
 
@@ -145,6 +156,21 @@ describe('Scales class', () => {
            let scales = new Scales(null, null, null, base);
 
            assert.strictEqual(base, scales.getBase());
+       });
+   });
+
+   //
+   // getArrow method
+   //
+   describe('getArrow method', () => {
+
+       it('Should return arrow object {Arrow}', () => {
+
+           let arrow = new Arrow({});
+
+           let scales = new Scales(null, null, null, null, arrow);
+
+           assert.strictEqual(arrow, scales.getArrow());
        });
    });
 

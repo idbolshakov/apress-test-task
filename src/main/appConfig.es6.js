@@ -36,12 +36,13 @@ let appConfig = {
 				x: 600,
 				y: 605,
 				width: 900,
-				height: 75
+				height: 85
 			}			
 		},
 			
 		leftPan: {
 				
+            verticalMotion: 60,
 			image: 'static/img/scales/pan.svg',
 		
 			measurement: {
@@ -49,12 +50,14 @@ let appConfig = {
 				x: 595,
 				y: 487,
 				width: 415,
-				height: 125
+				height: 125,
+                offset: 35
 			}
 		},	
 			
 		rightPan: {
 				
+            verticalMotion: 60,
 			image: 'static/img/scales/pan.svg',
 		
 			measurement: {
@@ -62,15 +65,29 @@ let appConfig = {
 				x: 1080,
 				y: 487,
 				width: 415,
-				height: 125
+				height: 125,
+                offset: 35
 			}				
-		}
+		},
+
+        arrow: {
+
+            measurement: {
+
+                x: 1046, 
+                y: 570,
+                width: 7,
+                height: 50
+            }
+        }
 	},
 	
 	// конфиг чемоданов
 	trunks: [
 		
 		{
+            id: 1,
+            weight: 50,
 			image: 'static/img/trunks/trunk1.svg',	
 						
 			measurement: {		
@@ -81,10 +98,12 @@ let appConfig = {
 				height: 100,
 			},		
 					
-			state: 0
+			action: 0
 		},
 				
 		{
+            id: 2,
+            weight: 80,
 			image: 'static/img/trunks/trunk2.svg',		
 					
 			measurement: {		
@@ -95,10 +114,12 @@ let appConfig = {
 				height: 75,
 			},		
 					
-			state: 0
+			action: 0
 		},
 		
 		{
+            id: 3,
+            weight: 40,
 			image: 'static/img/trunks/trunk3.svg',		
 					
 			measurement: {		
@@ -109,10 +130,12 @@ let appConfig = {
 				height: 100,
 			},		
 					
-			state: 0
+			action: 0
 		},	
 		
 		{
+            id: 4,
+            weight: 30,
 			image: 'static/img/trunks/trunk4.svg',		
 					
 			measurement: {		
@@ -123,10 +146,12 @@ let appConfig = {
 				height: 90,
 			},		
 					
-			state: 0
+			action: 0
 		},
 		
 		{
+            id: 5,
+            weight: 25,
 			image: 'static/img/trunks/trunk5.svg',		
 					
 			measurement: {		
@@ -137,10 +162,12 @@ let appConfig = {
 				height: 50,
 			},		
 					
-			state: 0
+			action: 0
 		},	
 		
 		{
+            id: 6,
+            weight: 25,
 			image: 'static/img/trunks/trunk6.svg',		
 					
 			measurement: {		
@@ -151,10 +178,12 @@ let appConfig = {
 				height: 90,
 			},		
 					
-			state: 0
+			action: 0
 		},
 		
 		{
+            id: 7,
+            weight: 40,
 			image: 'static/img/trunks/trunk7.svg',		
 					
 			measurement: {		
@@ -165,10 +194,12 @@ let appConfig = {
 				height: 220,
 			},		
 					
-			state: 0
+			action: 0
 		},
 		
 		{
+            id: 8,
+            weight: 60,
 			image: 'static/img/trunks/trunk8.svg',		
 					
 			measurement: {		
@@ -179,10 +210,12 @@ let appConfig = {
 				height: 85,
 			},		
 					
-			state: 0
+			action: 0
 		},
 		
 		{
+            id: 9,
+            weight: 65,
 			image: 'static/img/trunks/trunk9.svg',		
 					
 			measurement: {		
@@ -193,10 +226,12 @@ let appConfig = {
 				height: 70,
 			},		
 					
-			state: 0
+			action: 0
 		},
 		
 		{
+            id: 10,
+            weight: 70,
 			image: 'static/img/trunks/trunk10.svg',		
 					
 			measurement: {		
@@ -207,10 +242,12 @@ let appConfig = {
 				height: 120,
 			},		
 					
-			state: 0
+			action: 0
 		},
 		
 		{
+            id: 11,
+            weight: 65,
 			image: 'static/img/trunks/trunk11.svg',		
 					
 			measurement: {		
@@ -221,10 +258,12 @@ let appConfig = {
 				height: 85,
 			},		
 					
-			state: 0
+			action: 0
 		},
 		
 		{
+            id: 12,
+            weight: 50,
 			image: 'static/img/trunks/trunk12.svg',		
 					
 			measurement: {		
@@ -235,7 +274,7 @@ let appConfig = {
 				height: 140,
 			},		
 					
-			state: 0
+			action: 0
 		}																							
 	]
 };
