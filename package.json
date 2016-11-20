@@ -1,6 +1,6 @@
 {
   "name": "scales",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "реализация тестового задания от apress.ru на должность frontend-разработчика",
   "main": "index.js",
   "scripts": {

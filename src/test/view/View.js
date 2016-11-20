@@ -173,7 +173,7 @@ describe('View class', () => {
                     getElementById: function(id) {
 
                         this.id = id;
-                        return {};
+                        return {style:{}};
                     }
                 },
 
@@ -190,7 +190,7 @@ describe('View class', () => {
         it('Should load all images from {State} object', () => {
            
             let window = {
-                document: {getElementById: function() {return {};}},
+                document: {getElementById: function() {return {style:{}};}},
 
                 count: 0,
 
@@ -216,7 +216,7 @@ describe('View class', () => {
            
             let window = {
 
-                canvas: {width: null},
+                canvas: {width: null, style: {}},
 
                 document: {
                     getElementById: function() {
@@ -238,7 +238,7 @@ describe('View class', () => {
            
             let window = {
 
-                canvas: {height: null},
+                canvas: {height: null, style: {}},
 
                 document: {
                     getElementById: function() {
@@ -256,11 +256,11 @@ describe('View class', () => {
             assert.equal(state.getCanvas().getSize().height, window.canvas.height);
         });
 
-        it('Should set DOM canvas.style = "outline: solid 1px #000"', () => {
+        it('Should set DOM canvas.style.outline = "solid 1px #000"', () => {
            
             let window = {
 
-                canvas: {style: null},
+                canvas: {style: {outline: null}},
 
                 document: {
                     getElementById: function() {
@@ -275,7 +275,7 @@ describe('View class', () => {
             let view = new View(state, window);
             view.init();
 
-            assert.equal("outline: solid 1px #000", window.canvas.style);
+            assert.equal("solid 1px #000", window.canvas.style.outline);
         });
     });
 
@@ -285,7 +285,7 @@ describe('View class', () => {
  
             let window = {
 
-                canvas: {style: null},
+                canvas: {style: {}},
 
                 document: {
                     getElementById: function() {
@@ -318,6 +318,7 @@ describe('View class', () => {
                         
                         return {
                             
+                            style: {},
                             getContext: function() { 
                                 return {
                                     clearRect: function(){},
@@ -365,7 +366,7 @@ describe('View class', () => {
 
                 document: {
 
-                    getElementById: function() {return {};}
+                    getElementById: function() {return {style:{}};}
                 },
 
                 Image: class {
@@ -413,6 +414,7 @@ describe('View class', () => {
 
                     canvas: {
 
+                        style: {},
                         called: false,
 
                         getContext: function(arg) {
@@ -481,6 +483,7 @@ describe('View class', () => {
 
                     canvas: {
 
+                        style: {},
                         getContext: function(arg) { return window.context;},
                     },
 
@@ -542,6 +545,7 @@ describe('View class', () => {
 
                     canvas: {
 
+                        style: {},
                         getContext: function(arg) { return window.context;},
                     },
 
@@ -606,6 +610,7 @@ describe('View class', () => {
 
                     canvas: {
 
+                        style: {},
                         getContext: function(arg) { return window.context;},
                     },
 
@@ -671,6 +676,7 @@ describe('View class', () => {
 
                     canvas: {
 
+                        style: {},
                         getContext: function(arg) { return window.context;},
                     },
 
@@ -736,6 +742,7 @@ describe('View class', () => {
 
                     canvas: {
 
+                        style:{},
                         getContext: function(arg) { return window.context;},
                     },
 
@@ -801,6 +808,7 @@ describe('View class', () => {
 
                     canvas: {
 
+                        style: {},
                         getContext: function(arg) { return window.context;},
                     },
 
@@ -866,6 +874,7 @@ describe('View class', () => {
 
                     canvas: {
 
+                        style: {},
                         getContext: function(arg) { return window.context;},
                     },
 

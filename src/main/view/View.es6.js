@@ -7,7 +7,7 @@
  * отображение модели в браузере
  *
  * @author idbolshakov@gmail.com
- * @version 1.0.0
+ * @version 1.0.1
  */
 class View {
 
@@ -58,7 +58,7 @@ class View {
 
         this._container.width  = this._state.getCanvas().getSize().width;
         this._container.height = this._state.getCanvas().getSize().height;
-        this._container.style  = "outline: solid 1px #000";
+        this._container.style.outline = "solid 1px #000";
     }
 
     /** @private */
